@@ -9,8 +9,6 @@ module Nanoc
     class TextualCompiledContentCache < ::Nanoc::Int::Store
       include Nanoc::Core::ContractsSupport
 
-      # FIXME: not threadsafe!
-
       contract C::KeywordArgs[config: Nanoc::Core::Configuration] => C::Any
       def initialize(config:)
         super(Nanoc::Int::Store.tmp_path_for(config: config, store_name: 'compiled_content'), 2)
